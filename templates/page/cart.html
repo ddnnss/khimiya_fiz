@@ -1,0 +1,196 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+    {% include 'header_grey.html' %}
+
+    {% if total_cart_price %}
+        <section class="item">
+    <div class="container">
+        <div class="breadcrumbs">
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><span>Корзина</span></li>
+            </ul>
+        </div>
+        <div class="cart">
+            <table class="main-cart-items">
+                <thead class="main-cart-items-head">
+                <tr>
+                    <td>Товары</td>
+                    <td>Кол-во</td>
+                    <td>Цена</td>
+                    <td>Сумма</td>
+                    <td>Действие</td>
+                </tr>
+                </thead>
+                <tbody id="cart_body">
+                   {% for cart_item in all_items_in_cart %}
+                <tr class="main-cart-item">
+                    <td>
+                        <div class="main-cart-item-name">
+                            <img src="{{ cart_item.item.item.itemimage_set.first.image_small }}" alt=""> <span>{{ cart_item.item.item.name }} {{ cart_item.item.volume }} {{ cart_item.item.unit }}</span>
+                        </div>
+
+                    </td>
+                    <td class="main-cart-item-number">
+                        <div class="custom-input main-cart">
+                            <button class="custom-input-minus" data-item_id="{{ cart_item.id }}" onclick="mainCartMinusItem(this)">-</button>
+                            <input id="{{ cart_item.id }}_item_total" data-item_in_cart_id="{{ cart_item.id }}" value="{{ cart_item.number }}" disabled onchange="change_cart(this)">
+                            <button class="custom-input-plus" data-item_id="{{ cart_item.id }}" onclick="mainCartPlusItem(this)">+</button>
+
+                        </div>
+                    </td>
+                    <td class="main-cart-item-price">{{ cart_item.current_price}} &#8381;</td>
+                    <td class="main-cart-item-total-price">{{ cart_item.total_price }} &#8381;</td>
+                    <td class="main-cart-item-action"><a class="cart-delete-btn" onclick="delete_from_main_cart({{ cart_item.id }})" href="javascript:void(0)"><span>&#10006;</span></a></td>
+                </tr>
+                {% endfor %}
+                <tr class="main-cart-footer">
+                    <td class="main-cart-footer__total">Итого</td>
+                    <td></td>
+                    <td></td>
+                    <td colspan="2" class="main-cart-footer__total-price">{{ total_cart_price }} &#8381;</td>
+
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+     <div class="main-cart__buttons">
+            <a href="javascript:history.go(-1);" class="btn-outline btn-md">продолжить покупки</a>
+            <a href="{% url 'checkout' %}" class="btn btn-md">оформить заказ</a>
+        </div>
+
+    </div>
+</section>
+    <section class="relative-items">
+    <div class="container">
+        <h3>С этим товаром берут</h3>
+        <div class="item-cards">
+            <div class="item-card ">
+                <div class="item-card-discount">
+                    -15 %
+                </div>
+
+                <div class="item-card-favorite-btn">
+                    <a href="#"><i class="favorite-icon"></i></a>
+                </div>
+                <div class="item-card-inner">
+                    <a href="#"><img src="img/item.png" alt=""></a>
+
+                    <a href="#"><p class="item-card-name">Lorem ipsum.</p></a>
+                    <p class="item-card-description">Lorem ipsum dolor sit amet, consectetur.</p>
+                </div>
+                <div class="item-card-price">
+                    <p> 1300 Р</p>
+                </div>
+            </div><!--item-card-->
+            <div class="item-card ">
+                <div class="item-card-discount">
+                    -15 %
+                </div>
+
+                <div class="item-card-favorite-btn">
+                    <a href="#"><i class="favorite-icon"></i></a>
+                </div>
+                <div class="item-card-inner">
+                    <a href="#"><img src="img/item.png" alt=""></a>
+
+                    <a href="#"><p class="item-card-name">Lorem ipsum.</p></a>
+                    <p class="item-card-description">Lorem ipsum dolor sit amet, consectetur.</p>
+                </div>
+                <div class="item-card-price">
+                    <p> 1300 Р</p>
+                </div>
+            </div><!--item-card-->
+            <div class="item-card ">
+                <div class="item-card-discount">
+                    -15 %
+                </div>
+
+                <div class="item-card-favorite-btn">
+                    <a href="#"><i class="favorite-icon"></i></a>
+                </div>
+                <div class="item-card-inner">
+                    <a href="#"><img src="img/item.png" alt=""></a>
+
+                    <a href="#"><p class="item-card-name">Lorem ipsum.</p></a>
+                    <p class="item-card-description">Lorem ipsum dolor sit amet, consectetur.</p>
+                </div>
+                <div class="item-card-price">
+                    <p> 1300 Р</p>
+                </div>
+            </div><!--item-card-->
+            <div class="item-card ">
+                <div class="item-card-discount">
+                    -15 %
+                </div>
+
+                <div class="item-card-favorite-btn">
+                    <a href="#"><i class="favorite-icon"></i></a>
+                </div>
+                <div class="item-card-inner">
+                    <a href="#"><img src="img/item.png" alt=""></a>
+
+                    <a href="#"><p class="item-card-name">Lorem ipsum.</p></a>
+                    <p class="item-card-description">Lorem ipsum dolor sit amet, consectetur.</p>
+                </div>
+                <div class="item-card-price">
+                    <p> 1300 Р</p>
+                </div>
+            </div><!--item-card-->
+        </div>
+
+    </div>
+
+</section>
+    {% else %}
+        {% include 'page/empty_cart.html' %}
+    {% endif %}
+
+
+
+
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/jquery.showLoading.min.js' %}"></script>
+    <script src="{% static 'js/cart.js' %}"></script>
+    <script src="{% static 'js/delete_from_main_cart.js' %}"></script>
+
+<script>
+function mainCartPlusItem(el){
+        let event = new Event('change');
+        let item_id= el.dataset.item_id
+        let id= item_id +'_item_total'
+
+        let oldValue = document.getElementById(id).value
+
+
+        let newVal = parseFloat(oldValue) + 1;
+
+        document.getElementById(id).value = newVal
+        document.getElementById(id).dispatchEvent(event);
+    }
+
+    function mainCartMinusItem(el){
+        let event = new Event('change');
+        let item_id= el.dataset.item_id
+        let id= item_id +'_item_total'
+        let oldValue = document.getElementById(id).value
+
+        if (parseFloat(oldValue) > 2){
+            var newVal = parseFloat(oldValue) - 1;
+
+        }else {
+            var newVal = 1
+        }
+        document.getElementById(id).value = newVal
+        document.getElementById(id).dispatchEvent(event);
+    }
+</script>
+
+{% endblock %}

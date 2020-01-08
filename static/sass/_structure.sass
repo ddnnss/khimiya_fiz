@@ -1,0 +1,191 @@
+$text-color: #010101
+$primary-color: #d5ab61
+$secondary-color: #44d4de
+$bg-grey: #f2f3f5
+$border: #e5e5e5
+
+.container
+  max-width: 1170px
+  padding: 0 15px
+  margin: 0 auto
+
+
+h1
+  font-family: Panton-ExtraBold,sans-serif
+  color: #ffffff
+  font-size: 50px
+  text-transform: uppercase
+
+h3
+  font-family: Panton-Bold, sans-serif
+  font-size: 36px
+  color: black
+  margin-bottom: 70px
+
+
+.no-m
+  margin: 0 !important
+
+.b-border
+  border-bottom: 2px solid #d9dadc
+  margin-bottom: 35px
+
+#lit_price
+  display: none
+
+.btn
+  font-family: SF UI Display Semibold,sans-serif
+  text-decoration: none
+  text-transform: uppercase
+  color: #ffffff
+  background: $secondary-color
+  border-radius: 30px
+  font-size: 16px
+  padding: 19px 58px
+  display: inline-block
+
+  //&:hover
+  //  animation: jello-horizontal 0.9s both
+
+.btn-outline
+  font-family: SF UI Display Semibold,sans-serif
+  text-decoration: none
+  text-transform: uppercase
+  color: $secondary-color
+  border: 1px solid $secondary-color
+  border-radius: 30px
+  font-size: 16px
+  padding: 19px 58px
+  display: inline-block
+
+.btn-md
+  padding: 15px 40px !important
+
+.btn-sm
+  padding: 10px 0 !important
+  display: block
+  text-align: center
+
+.btn
+  &:hover
+    box-shadow: 0px 0px 9px 1px #d5ab61
+.btn-outline
+  &:hover
+    box-shadow: 0px 0px 9px 1px #d5ab61
+.cart-delete-btn
+  text-decoration: none
+  background: $secondary-color
+  color: #ffffff
+  border-radius: 50%
+  padding: 1px 4px
+
+.top-banner
+  height: 371px
+.top-banner-inner
+  height: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  h1
+    margin-bottom: 35px
+  ul
+    display: inline-flex
+    li
+      text-transform: capitalize
+      font-size: 22px
+      font-family: Panton-Regular, sans-serif
+      color: #ffffff
+      &:after
+        content: '-'
+        margin: 0 10px
+      &:last-child:after
+        content: ''
+      a
+        text-decoration: none
+        text-transform: capitalize
+        font-size: 22px
+        font-family: Panton-Regular, sans-serif
+        color: #ffffff
+
+.breadcrumbs
+  margin-bottom: 30px
+  ul
+    display: inline-flex
+    li
+      span
+        font-size: 15px
+        font-family: "SF UI Display Medium",sans-serif
+        color: $primary-color
+
+      a
+        text-decoration: none
+        font-size: 15px
+        font-family: "SF UI Display Medium",sans-serif
+        color: #727272
+
+      &:after
+        content: '/'
+        margin: 0 5px
+        color: #727272
+      &:last-child:after
+        content: ''
+.relative-items
+  margin-top: 120px
+.bg-gray
+  background: #f7f7f8
+
+.img-magnifier-container
+  position: relative
+
+.img-magnifier-glass
+  position: absolute
+  border: 3px solid #000
+  border-radius: 50%
+  cursor: none
+  /*Set the size of the magnifier glass:*/
+  width: 100px
+  height: 100px
+
+@keyframes focus-in-expand
+  0%
+    letter-spacing: -0.5em
+    filter: blur(12px)
+    opacity: 0
+
+  100%
+    filter: blur(0px)
+    opacity: 1
+
+.focus-in-expand
+	animation: focus-in-expand 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
+
+//http://animista.net/play/text/focus-in/focus-in-expand
+
+@keyframes jello-horizontal
+  0%
+    transform: scale3d(1, 1, 1)
+
+  30%
+    transform: scale3d(1.25, 0.75, 1)
+
+  40%
+    transform: scale3d(0.75, 1.25, 1)
+
+  50%
+    transform: scale3d(1.15, 0.85, 1)
+
+  65%
+    transform: scale3d(0.95, 1.05, 1)
+
+  75%
+    transform: scale3d(1.05, 0.95, 1)
+
+  100%
+    transform: scale3d(1, 1, 1)
+
+@media (max-width: 720px)
+  .hidden-md
+    display: none !important
+  .visible-md
+    display: block !important

@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<header class="header">
+    <div class="container  hidden-md">
+        <div class="header-top">
+            <ul>
+                <li><a href="#">Краснодар</a></li>
+                <li><a href="#">Информация о доставке</a></li>
+                <li><a href="#">Бонусная программа</a></li>
+                <li><a href="#">Частые вопросы</a></li>
+            </ul>
+        </div>
+        <div class="header-inner ">
+            <a>
+                <img src="http://placehold.it/300x70" alt="">
+            </a>
+
+
+            <form class="search-form">
+                <input class="search-input" name="search-query" placeholder="Поиск товаров по сайту" required>
+                <button class="search-input-button" type="submit"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                       width="24" height="24"
+                                                                       viewBox="0 0 24 24"
+                                                                       style=" fill:#44d4de;">    <path d="M 9 2 C 5.1458514 2 2 5.1458514 2 9 C 2 12.854149 5.1458514 16 9 16 C 10.747998 16 12.345009 15.348024 13.574219 14.28125 L 14 14.707031 L 14 16 L 20 22 L 22 20 L 16 14 L 14.707031 14 L 14.28125 13.574219 C 15.348024 12.345009 16 10.747998 16 9 C 16 5.1458514 12.854149 2 9 2 z M 9 4 C 11.773268 4 14 6.2267316 14 9 C 14 11.773268 11.773268 14 9 14 C 6.2267316 14 4 11.773268 4 9 C 4 6.2267316 6.2267316 4 9 4 z"></path></svg></button>
+            </form>
+
+            <div class="header-icons-block">
+                <div  class="header-cart">
+                    <a  href="#"><span class="user-lk"><!--span class="cart-items">!</span--></span></a>
+                </div>
+                <div id="shopping-bag" class="header-cart">
+                    <a  href="#"><span class="shopping-bag"><span class="cart-items">3</span></span></a>
+                    <div id="shopping_bag_menu" class="menu-cart-items">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img width="40" src="img/icons-vk.png" alt="">
+                                </td>
+                                <td>
+                                    Название товара
+                                </td>
+                                <td>
+                                    <span id="cart_item_number">1</span> x <span id="cart_item_price">500</span> = <span id="cart_item_total_price">9098</span>
+                                </td>
+                                <td><a class="cart-delete-btn" href="javascript:void(0)"><span>&#10006;</span></a></td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img width="40" src="img/icons-vk.png" alt="">
+                                </td>
+                                <td >
+                                    Название товара
+                                </td>
+                                <td>
+                                    <span id="cart_item_number">1</span> x <span id="cart_item_price">500</span> = <span id="cart_item_total_price">87889789</span>
+                                </td>
+                                <td><a class="cart-delete-btn" href="javascript:void(0)"><span>&#10006;</span></a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img width="40" src="img/icons-vk.png" alt="">
+                                </td>
+                                <td>
+                                    Название товара
+                                </td>
+                                <td>
+                                    <span id="cart_item_number">1</span> x <span id="cart_item_price">500</span> = <span id="cart_item_total_price">56565</span>
+                                </td>
+                                <td><a class="cart-delete-btn" href="javascript:void(0)"><span>&#10006;</span></a></td>
+                            </tr>
+                            <tr class="cart-footer">
+                                <td colspan="2">Итого</td>
+                                <td colspan="2">123123123</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <a href="#" class="btn btn-sm">Открыть корзину</a>
+
+                                </td>
+                                <td colspan="2">
+
+                                    <a href="#" class="btn-outline btn-sm">Оплата</a>
+                                </td>
+
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="categories-nav">
+            <ul>
+                <li class="categories-nav-item" id="li_id_1" data-menu_id="1"><a class="categories-nav-item-link" href="#">Сельское хозяйство</a></li>
+                <li class="categories-nav-item" id="li_id_2" data-menu_id="2"><a href="#">Учреждения здравоохранения</a></li>
+                <li class="categories-nav-item"><a href="#">Пищевая промышленность</a></li>
+                <li class="categories-nav-item"><a href="#">Клининг</a></li>
+                <li class="categories-nav-item"><a href="#">HoReCa</a></li>
+                <li class="categories-nav-item"><a href="#">Салоны красоты и SPA</a></li>
+                <li class="categories-nav-item"><a href="#">Детские сады и школы</a></li>
+                <li class="categories-nav-item"><a href="#">Машиностроение и металлообработка</a></li>
+                <li class="categories-nav-item"><a href="#">Транспорт</a></li>
+                <li class="categories-nav-item"><a href="#">Обслуживание теплообменного оборудования</a></li>
+            </ul>
+
+        </div>
+        <div id="menu_id_1" data-li_id="1" class="categories-nav-dropdown" >
+
+
+            <ul class="categories-nav-dropdown-subcategory-items">
+                <li><a href="#">Заголовок</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+
+            </ul>
+            <ul class="categories-nav-dropdown-subcategory-items">
+                <li><a href="#">Заголовок</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+
+            </ul>
+
+            <ul class="categories-nav-dropdown-subcategory-items">
+                <li><a href="#">Заголовок</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+
+            </ul>
+
+
+
+
+        </div>
+        <div id="menu_id_2" data-li_id="2" class="categories-nav-dropdown" >
+
+
+            <ul class="categories-nav-dropdown-subcategory-items">
+                <li><a href="#">Заголовок</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+
+            </ul>
+            <ul class="categories-nav-dropdown-subcategory-items">
+                <li><a href="#">Заголовок</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+
+            </ul>
+            <ul class="categories-nav-dropdown-subcategory-items">
+                <li><a href="#">Заголовок</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+
+            </ul>
+            <ul class="categories-nav-dropdown-subcategory-items">
+                <li><a href="#">Заголовок</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+
+            </ul>
+            <ul class="categories-nav-dropdown-subcategory-items">
+                <li><a href="#">Заголовок</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+
+            </ul>
+
+            <ul class="categories-nav-dropdown-subcategory-items">
+                <li><a href="#">Заголовок</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+                <li><a href="#">item</a></li>
+
+            </ul>
+
+
+
+
+        </div>
+
+
+    </div>
+    <div class="mobile-header container visible-md">
+
+
+        <div class="header-mobile-close">
+            <a>
+                <img src="http://placehold.it/300x70" alt="">
+            </a>
+            <span onclick="toggleMenu()">&#9776;</span>
+        </div>
+
+    </div>
+    <div class="header-mobile-menu">
+        <div class="header-mobile-menu-top">
+            <div class="header-mobile-close">
+                <p>телефон</p>
+                <span onclick="toggleMenu()">&#10006;</span>
+            </div>
+            <ul>
+                <li><a href="#">Краснодар</a></li>
+                <li><a href="#">Информация о доставке</a></li>
+                <li><a href="#">Бонусная программа</a></li>
+                <li><a href="#">Частые вопросы</a></li>
+                <li><a href="#">Вход/Регистрация</a></li>
+                <li><a href="#">Корзина</a></li>
+            </ul>
+        </div>
+
+        <form class="search-form">
+            <input class="search-input" name="search-query" placeholder="Поиск товаров по сайту" required>
+            <button class="search-input-button" type="submit"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                   width="24" height="24"
+                                                                   viewBox="0 0 24 24"
+                                                                   style=" fill:#44d4de;">    <path d="M 9 2 C 5.1458514 2 2 5.1458514 2 9 C 2 12.854149 5.1458514 16 9 16 C 10.747998 16 12.345009 15.348024 13.574219 14.28125 L 14 14.707031 L 14 16 L 20 22 L 22 20 L 16 14 L 14.707031 14 L 14.28125 13.574219 C 15.348024 12.345009 16 10.747998 16 9 C 16 5.1458514 12.854149 2 9 2 z M 9 4 C 11.773268 4 14 6.2267316 14 9 C 14 11.773268 11.773268 14 9 14 C 6.2267316 14 4 11.773268 4 9 C 4 6.2267316 6.2267316 4 9 4 z"></path></svg></button>
+        </form>
+
+        <ul class="mobile-main-categories">
+            <li class="mobile-main-categories-wrapper " onclick="openCategory(this)">
+                <a class="mobile-main-categories-item" href="#">Главния категория</a>
+                <ul class="mobile-sub-categories">
+                    <li class="mobile-sub-categories-wrapper"  onclick="openSubcategory(this)">
+                        <a class="mobile-sub-categories-item" href="#">Главная подкатегория</a>
+                        <ul class="mobile-subsub-categories">
+                            <li><a class="mobile-subsub-categories-item" href="#">подкатегория</a> </li>
+                            <li><a class="mobile-subsub-categories-item" href="#">подкатегория</a> </li>
+                            <li><a class="mobile-subsub-categories-item" href="#">подкатегория</a> </li>
+                            <li><a class="mobile-subsub-categories-item" href="#">подкатегория</a> </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="mobile-sub-categories">
+                    <li class="mobile-sub-categories-wrapper " onclick="openSubcategory(this)">
+                        <a class="mobile-sub-categories-item" href="#">Главная подкатегория</a>
+                        <ul class="mobile-subsub-categories-wrapper">
+                            <li><a class="mobile-subsub-categories-item" href="#">подкатегория</a> </li>
+                            <li><a class="mobile-subsub-categories-item" href="#">подкатегория</a> </li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="mobile-main-categories-wrapper" onclick="openCategory(this)">
+                <a class="mobile-main-categories-item" href="#">Главния категория</a>
+                <ul class="mobile-sub-categories">
+                    <li class="mobile-sub-categories-wrapper">
+                        <a class="mobile-sub-categories-item" href="#">Главная подкатегория</a>
+                        <ul class="mobile-subsub-categories-wrapper">
+                            <li><a class="mobile-subsub-categories-item" href="#">подкатегория</a> </li>
+                            <li><a class="mobile-subsub-categories-item" href="#">подкатегория</a> </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+
+        </ul>
+
+    </div>
+</header>
+<section class="offer">
+    <div class="container">
+        <div class=" offer-inner">
+            <h1>Получите скидку до 30% на любой товар</h1>
+            <p>Пройдите опрос, который автоматически определит товар для вас</p>
+            <a href="#" class="btn">пройти опрос</a>
+        </div>
+
+    </div>
+
+</section><!--offer-->
+<section class="features">
+    <div class="container">
+        <div class="features-items">
+            <div class="feature-item">
+                <div class="feature-icon1"></div>
+                <h4>Бесплатная доставка</h4>
+                <p>Предоставим бесплатную доставку при заказе от 1000 рублей</p>
+
+            </div> <!--feature-item-->
+            <div class="feature-item">
+                <div class="feature-icon2"></div>
+                <h4>Бесплатная доставка</h4>
+                <p>Предоставим бесплатную доставку при заказе от 1000 рублей</p>
+
+            </div> <!--feature-item-->
+            <div class="feature-item">
+                <div class="feature-icon3"></div>
+                <h4>Бесплатная доставка</h4>
+                <p>Предоставим бесплатную доставку при заказе от 1000 рублей</p>
+
+            </div> <!--feature-item-->
+            <div class="feature-item">
+                <div class="feature-icon4"></div>
+                <h4>Бесплатная доставка</h4>
+                <p>Предоставим бесплатную доставку при заказе от 1000 рублей</p>
+
+            </div> <!--feature-item-->
+
+        </div>
+    </div>
+</section><!--features-->
+
+<section class="about-us">
+    <div class="container">
+        <div class="about-us-inner">
+            <div class="about-us-info" >
+                <h3>О компании и продукте</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, accusantium animi assumenda debitis doloremque, error facilis illo minus non nostrum numquam obcaecati quidem sapiente sed sunt voluptate voluptates? Ab adipisci, amet deleniti earum et facilis nam nesciunt nulla quibusdam vitae!</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci at dolorem doloribus earum esse illum itaque non nulla placeat. Culpa dolorum itaque magnam officia pariatur provident quibusdam voluptas voluptates!20</p>
+
+            </div>
+            <div class="about-us-video">
+                <iframe width="80%" height="100%"
+                        src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                </iframe>
+                <!--  <p>Посмотрите видео-ролик о нашем товаре</p>-->
+            </div>
+        </div>
+    </div>
+</section><!--about-us-->
+
+<section class="popular-items">
+    <div class="container">
+        <h3>Популярные товары</h3>
+        <div class="item-cards">
+            <div class="item-card ">
+                <div class="item-card-discount">
+                    -15 %
+                </div>
+
+                <div class="item-card-favorite-btn">
+                    <a href="#"><i class="favorite-icon"></i></a>
+                </div>
+                <div class="item-card-inner">
+                    <a href="#"><img src="img/item.png" alt=""></a>
+
+                    <a href="#"><p class="item-card-name">Lorem ipsum.</p></a>
+                    <p class="item-card-description">Lorem ipsum dolor sit amet, consectetur.</p>
+                </div>
+                <div class="item-card-price">
+                    <p> 1300 Р</p>
+                </div>
+            </div><!--item-card-->
+            <div class="item-card ">
+                <div class="item-card-discount">
+                    -15 %
+                </div>
+
+                <div class="item-card-favorite-btn">
+                    <a href="#"><i class="favorite-icon"></i></a>
+                </div>
+                <div class="item-card-inner">
+                    <a href="#"><img src="img/item.png" alt=""></a>
+
+                    <a href="#"><p class="item-card-name">Lorem ipsum.</p></a>
+                    <p class="item-card-description">Lorem ipsum dolor sit amet, consectetur.</p>
+                </div>
+                <div class="item-card-price">
+                    <p> 1300 Р</p>
+                </div>
+            </div><!--item-card-->
+            <div class="item-card ">
+                <div class="item-card-discount">
+                    -15 %
+                </div>
+
+                <div class="item-card-favorite-btn">
+                    <a href="#"><i class="favorite-icon"></i></a>
+                </div>
+                <div class="item-card-inner">
+                    <a href="#"><img src="img/item.png" alt=""></a>
+
+                    <a href="#"><p class="item-card-name">Lorem ipsum.</p></a>
+                    <p class="item-card-description">Lorem ipsum dolor sit amet, consectetur.</p>
+                </div>
+                <div class="item-card-price">
+                    <p> 1300 Р</p>
+                </div>
+            </div><!--item-card-->
+            <div class="item-card ">
+                <div class="item-card-discount">
+                    -15 %
+                </div>
+
+                <div class="item-card-favorite-btn">
+                    <a href="#"><i class="favorite-icon"></i></a>
+                </div>
+                <div class="item-card-inner">
+                    <a href="#"><img src="img/item.png" alt=""></a>
+
+                    <a href="#"><p class="item-card-name">Lorem ipsum.</p></a>
+                    <p class="item-card-description">Lorem ipsum dolor sit amet, consectetur.</p>
+                </div>
+                <div class="item-card-price">
+                    <p> 1300 Р</p>
+                </div>
+            </div><!--item-card-->
+        </div>
+        <div class="popular-items-btn">
+            <a href="#" class="btn">смотреть каталог</a>
+        </div>
+    </div>
+
+</section><!--popular-items-->
+<section class="slider">
+    <div class="slider-inner">
+
+
+            <div class="slider-text-inner">
+                <div class="slide-wrapper">
+                    <div class="slider-image">
+                        <img id="slide-img-1" class="slide-img" src="img/slide1.jpg">
+
+                    </div>
+                    <div  class="slide-text">
+                        <h4>Самый большой выбор на рынке1</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolore ducimus facilis rem repudiandae unde? Beatae cupiditate earum et expedita id nemo nesciunt nulla numquam, possimus, quasi reiciendis, vel voluptatibus.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab dolorem nostrum obcaecati praesentium quia similique veniam. Ad nemo provident quae.</p>
+                    </div>
+                </div>
+    <div class="slide-wrapper">
+                    <div class="slider-image">
+                        <img id="slide-img-1" class="slide-img" src="img/slide1.jpg">
+
+                    </div>
+                    <div  class="slide-text">
+                        <h4>Самый большой выбор на рынке1</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolore ducimus facilis rem repudiandae unde? Beatae cupiditate earum et expedita id nemo nesciunt nulla numquam, possimus, quasi reiciendis, vel voluptatibus.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab dolorem nostrum obcaecati praesentium quia similique veniam. Ad nemo provident quae.</p>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="slider-text-inner-arrows">
+                <span id="cur_slide">01</span><span id="total_slide"></span>
+                <a id="arrow_left" href="javascript:void(0)"  > <img src="img/arrow_left.png" alt=""></a>
+                <a id="arrow_right" href="javascript:void(0)" > <img src="img/arrow_right.png" alt=""></a>
+            </div>
+
+    </div>
+
+</section><!--slider-->
+<section class="popular-items"><!--popular-category-->
+    <div class="container">
+        <h3>Популярные категории</h3>
+        <div class="item-cards">
+            <div class="item-card ">
+                <div class="item-card-inner">
+                    <img src="img/item.png" alt="">
+                    <p class="item-card-name">Lorem ipsum.</p>
+                    <p class="item-card-description">Lorem ipsum dolor sit amet, consectetur.</p>
+                </div>
+                <div class="item-card-price">
+                    <a href="#" class="btn">открыть</a>
+                </div>
+            </div><!--item-card-->
+            <div class="item-card ">
+                <div class="item-card-inner">
+                    <img src="img/item.png" alt="">
+                    <p class="item-card-name">Lorem ipsum.</p>
+                    <p class="item-card-description">Lorem ipsum dolor sit amet, consectetur.</p>
+                </div>
+                <div class="item-card-price">
+                    <a href="#" class="btn">открыть</a>
+                </div>
+            </div><!--item-card-->
+
+            <div class="item-card ">
+                <div class="item-card-inner">
+                    <img src="img/item.png" alt="">
+                    <p class="item-card-name">Lorem ipsum.</p>
+                    <p class="item-card-description">Lorem ipsum dolor sit amet, consectetur.</p>
+                </div>
+                <div class="item-card-price">
+                    <a href="#" class="btn">открыть</a>
+                </div>
+            </div><!--item-card-->
+
+
+
+
+        </div>
+        <div class="popular-items-btn">
+            <a href="#" class="btn">смотреть каталог</a>
+        </div>
+    </div>
+
+</section><!--popular-category-->
+<footer class="footer">
+    <section class="mailform">
+        <div class="mailform-inner">
+            <h3>Хотите подробнее узнать о нашем товаре?</h3>
+            <p>Оставьте заявку на бесплатную консультацию</p>
+            <div class="mailform-form">
+
+                <input type="text" class="mailform-imput" placeholder="Ваше имя" value="" required>
+                <input type="email" class="mailform-imput" placeholder="Email" value="" required>
+                <input type="text" class="mailform-imput no-m" placeholder="Сотовый номер" value="" required>
+                <button type="submit" class="mailform-button">Заказать звонок</button>
+
+            </div>
+
+        </div>
+
+
+    </section><!--mailform-->
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="#">главная</a></li>
+                    <li><a href="#">каталог</a></li>
+                    <li><a href="#">корзина</a></li>
+                    <li><a href="#">контакты</a></li>
+                    <li><a href="#">faq</a></li>
+                </ul>
+            </div>
+            <div class="footer-phone">
+                <p>8 800 355 65 65</p>
+            </div>
+        </div>
+    </div>
+    <div class="b-border"></div>
+    <div class="container">
+        <div class="footer-copyright">
+            <div class="footer-copyright-text">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, laborum!
+                </p>
+            </div>
+            <div class="footer-copyright-social">
+                <a href="#"><img src="img/icons-instagram.png" alt=""></a>
+                <a href="#"><img src="img/icons-viber.png" alt=""></a>
+                <a href="#"><img src="img/icons-vk.png" alt=""></a>
+                <a href="#" class="no-m"><img src="img/icons-whatsapp.png" alt=""></a>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</footer>
+
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-form offer-form-wrapper">
+            <div class="offer-form-inner">
+                <div class="modal-header">
+                    <h6 id="form_header">Форма входа</h6> <span class="close loginModalClose">&times;</span>
+                </div>
+                <div id="user-form-wrapper">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+    let qtySlides = $('.slide-wrapper').length;
+    $('#total_slide').text(`0${qtySlides}`);
+    console.log(qtySlides)
+    let slider = $('.slider-text-inner').slick({
+        prevArrow: '#arrow_left',
+        nextArrow: '#arrow_right',
+        slidesToShow: 1,
+
+    variableHeight: true
+        }
+
+    );
+
+    slider.on('afterChange', function(event, slick, currentSlide, nextSlide){
+    $('#cur_slide').text(`0${slider.slick('slickCurrentSlide')+1}`);
+ });
+
+    function toggleMenu() {
+        let menu = document.getElementsByClassName('header-mobile-menu')[0]
+        menu.classList.toggle('mobile-menu-active')
+    }
+    function openSubcategory(el){
+        console.log(el)
+        let allSubCats = document.getElementsByClassName('mobile-sub-categories-wrapper')
+        for (x of allSubCats){
+            x.classList.remove('sub-active')
+        }
+        el.classList.add('sub-active')
+    }
+    function openCategory(el){
+        console.log(el)
+        // try {
+        //       document.getElementsByClassName('sub-active')[0].classList.remove('sub-active')
+        //  }catch (e) {
+        //
+        //  }
+
+        let allCats = document.getElementsByClassName('mobile-main-categories-wrapper')
+        for (x of allCats){
+            x.classList.remove('main-active')
+        }
+
+        el.classList.add('main-active')
+    }
+
+
+    let close_modal = document.getElementsByClassName("loginModalClose")[0];
+    let modal = document.getElementById('loginModal')
+    let modalContent = document.getElementById('user-form-wrapper')
+    let formHeader = document.getElementById('form_header')
+    let formStatus = 'login'
+
+
+    modal.style.display = 'block'
+    formHeader.innerText = 'Форма входа'
+    modalContent.innerHTML = ''
+    modalContent.innerHTML = ` <form onsubmit="return false;">
+                                        <div class="user-form-inputs">
+                                            <div class="checkout-user-info__input">
+                                                <label >E-Mail<sup>*</sup> </label>
+                                                <input name="log" id="login-email"  required="required"  type="email" class="form-control"  placeholder="Ваш EMail, указанный при регистрации" value="">
+                                            </div>
+                                            <div class="checkout-user-info__input">
+                                                <label >Пароль<sup>*</sup> </label>
+                                                <input name="password" id="login-password"  required="required"  type="password" class="form-control"  placeholder="Ваш пароль" value="">
+                                            </div>
+                                        </div>
+                                        <div class="user-form-buttons">
+                                            <a href="javascript:void(0)" class="btn-outline btn-sm" onclick="openRegModal()">Регистрация</a>
+                                            <a href="javascript:void(0)" class="btn btn-sm " onclick="login()">Вход</a>
+                                            <a href="javascript:void(0)" class="btn-outline btn-sm" onclick="openPassModal()">Забыли пароль?</a>
+                                       </div>
+                                   </form>`
+
+
+    close_modal.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    function openRegModal() {
+        formStatus = 'register'
+        formHeader.innerText = 'Форма входа'
+        modalContent.classList.remove('scale-in')
+        modalContent.classList.add('scale-out')
+    }
+
+    function openPassModal() {
+        formHeader.innerText = 'Восстановление пароля'
+        formStatus = 'pass'
+        modalContent.classList.remove('scale-in')
+        modalContent.classList.add('scale-out')
+    }
+
+
+
+    modalContent.addEventListener("webkitAnimationEnd", function () {
+        modalContent.classList.remove('scale-out')
+        if (formStatus==='register'){
+            formHeader.innerText = 'Регистрация'
+            modalContent.innerHTML = ''
+            modalContent.innerHTML = `<form onsubmit="return false;">
+                        <div class="user-form-inputs">
+                            <div id="erroremail" style="color:red;margin-bottom: 5px;"></div>
+                            <div class="checkout-user-info__input">
+
+                                <label >E-Mail<sup>*</sup> </label>
+                                <input name="log" id="reg_email"  required="required"  type="email" class="form-control"  placeholder="Ваш EMail" value="">
+                            </div>
+                            <div class="checkout-user-info__input">
+                                <label >Пароль<sup>*</sup> </label>
+                                <input name="password" id="reg_pass1"  required="required"  type="password" class="form-control"  placeholder="Ваш пароль" value="">
+                            </div>
+                            <div class="checkout-user-info__input">
+                                <label >Повторите пароль<sup>*</sup> </label>
+                                <input name="password" id="reg_pass2"  required="required"  type="password" class="form-control"  placeholder="Ваш пароль" value="">
+                            </div>
+                            <input style="display: none" type="checkbox" name="agree">
+                            <div id="errorpass" style="color:red;margin-bottom: 5px;"></div>
+                            <div class="captcha">
+                                <p class="user-form-p">Антиспам :</p>
+                                <span style="background: url('img/capthca/1.png')"></span>
+                                 <span style="background: url('img/capthca/plus.png')"></span>
+                                 <span style="background: url('img/capthca/1.png')"></span>
+                                 <span style="background: url('img/capthca/eqal.png')"></span>
+                                <input id="reg_answer" type="text"  placeholder="ответ" required="required">
+                            </div>
+                             <div id="errorother" class="error-msg" style="color:red;margin-bottom: 5px;"></div>
+                        </div>
+                        <div class="user-form-buttons">
+
+                            <a href="javascript:void(0)" class="btn btn-sm " onclick="signup()">Регистрация</a>
+
+                        </div>
+                    </form>`
+        }
+        if (formStatus==='pass'){
+            modalContent.innerHTML = ''
+            modalContent.innerHTML = ` <form onsubmit="return false;">
+                                       <div class="user-form-inputs">
+                                           <div class="checkout-user-info__input">
+                                               <label >E-Mail<sup>*</sup> </label>
+                                               <input name="log" id="restore-email"  required="required"  type="email" class="form-control"  placeholder="Ваш EMail, указанный при регистрации" value="">
+                                           </div>
+                                       </div>
+                                       <div class="user-form-buttons">
+                                           <a href="javascript:void(0)" class="btn btn-sm " onclick="restore()">Восстановить пароль</a>
+                                        </div>
+                                    </form>`
+        }
+        if (formStatus==='login'){
+            modalContent.innerHTML = ''
+            modalContent.innerHTML = ` <form onsubmit="return false;">
+                                        <div class="user-form-inputs">
+                                            <div class="checkout-user-info__input">
+                                                <label >E-Mail<sup>*</sup> </label>
+                                                <input name="log" id="login-email"  required="required"  type="email" class="form-control"  placeholder="Ваш EMail, указанный при регистрации" value="">
+                                            </div>
+                                            <div class="checkout-user-info__input">
+                                                <label >Пароль<sup>*</sup> </label>
+                                                <input name="password" id="login-password"  required="required"  type="password" class="form-control"  placeholder="Ваш пароль" value="">
+                                            </div>
+                                        </div>
+                                        <div class="user-form-buttons">
+                                            <a href="javascript:void(0)" class="btn-outline btn-sm" onclick="openRegModal()">Регистрация</a>
+                                            <a href="javascript:void(0)" class="btn btn-sm " onclick="login()">Вход</a>
+                                            <a href="javascript:void(0)" class="btn-outline btn-sm" onclick="openPassModal()">Забыли пароль?</a>
+                                       </div>
+                                   </form>`
+        }
+
+        modalContent.classList.add('scale-in')
+    });
+    //------------------------------------------
+
+
+    // cart.addEventListener("mouseleave", function (event) {
+    //     if (event.relatedTarget.classList != 'header-inner'){
+    //         cart_menu.style.display = 'none'
+
+    //    }
+    //});
+
+
+
+
+</script>
+</body>
+</html>

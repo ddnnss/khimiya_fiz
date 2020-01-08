@@ -1,0 +1,69 @@
+%feature-icon
+  height: 49px
+  width: 66px
+  margin-bottom: 45px
+.features
+  height: 320px
+  border-bottom: 2px solid $bg-grey
+  padding-top: 80px
+.feature-icon1
+  @extend %feature-icon
+  background: url("../img/index-icon-1.png") no-repeat
+.feature-icon2
+  @extend %feature-icon
+  background: url("../img/index-icon-2.png")
+.feature-icon3
+  @extend %feature-icon
+  background: url("../img/index-icon-3.png")
+.feature-icon4
+  @extend %feature-icon
+  background: url("../img/index-icon-4.png")
+.features-items
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(230px, auto))
+  grid-gap: 15px
+
+.feature-item
+  h4
+    font-family: Panton-Bold,sans-serif
+    font-size: 21px
+    color: #000000
+    margin-bottom: 30px
+
+
+  p
+    font-family: SF UI Regular, sans-serif
+    font-size: 14px
+    color: rgba(0, 0, 0, 0.7)
+    line-height: 22px
+
+.about-us
+  box-sizing: border-box
+  background: url("../img/bg.jpg") no-repeat center
+  padding-top: 70px
+  height: 518px
+  border-bottom: 2px solid $bg-grey
+
+.about-us-inner
+  display: grid
+  grid-template-columns: 1fr 1fr
+
+.about-us-info
+  max-width: 80%
+
+  p
+    font-family: SF UI Regular, sans-serif
+    color: #5a5b5c
+    margin-bottom: 15px
+  p:last-child
+    margin: 0
+.about-us-video
+  background: $bg-grey
+  text-align: end
+
+  iframe
+    border: none
+    border-radius: 5px
+    margin-bottom: 45px
+  p
+    color: #b1b1b1

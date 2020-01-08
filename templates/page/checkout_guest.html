@@ -1,0 +1,356 @@
+{% load static %}
+{% load humanize %}
+<span id="cart_start_price" >{{ total_cart_price }}</span>
+<span id="promo_discount" >{{ promo_discount_value }}</span>
+<section class="checkout">
+    <div class="container">
+        <div class="breadcrumbs">
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="{% url 'show_cart' %}">Корзина</a></li>
+                <li><span>Оформление заказа</span></li>
+            </ul>
+        </div>
+        <h3>Оформление заказа</h3>
+
+
+  <div class="checkout-inner">
+            <form id="customer_form"  action="{% url 'checkout' %}" method="post">{% csrf_token %}
+                <div class="checkout-user">
+
+
+                    <div class="checkout-user-info" >
+                        <div class="checkout-user-info__header">
+                            <span>1</span>
+                            <p>Введите Ваши данные</p>
+                        </div>
+
+                        <div class="checkout-user-info__inputs">
+                            <div class="checkout-user-info__input">
+                                <label >Ваше имя <sup>*</sup> </label>
+                                <input id="name_input"  required="required" name="{{ form.name.name }}" type="text" class="form-control"  placeholder="Ваше имя" value="{% if not guest.name %}{% else %}{{ guest.name }}{% endif %}">
+                            </div>
+                            <div class="checkout-user-info__input">
+                                <label for="InputName">Ваша фамилия <sup>*</sup> </label>
+                                <input id="family_input" required="required" name="{{ form.family.name }}" type="text" class="form-control"  placeholder="Ваша фамилия" value="{% if not guest.family %}{% else %}{{ guest.family }}{% endif %}">
+                            </div>
+                            <div class="checkout-user-info__input">
+                                <label for="InputName">Ваше отчество  </label>
+                                <input   name="{{ form.otchestvo.name }}" type="text" class="form-control"  placeholder="Ваше отчество" value="{% if not guest.otchestvo %}{% else %}{{ guest.otchestvo }}{% endif %}">
+                            </div>
+                            <div class="checkout-user-info__input">
+                                <label for="InputEmail">Ваш E-Mail <sup>*</sup> <span style="color: #f2486e;font-size: 13px;"
+                                                                                      id="checkout_email_error"></span>
+                                </label>
+                                <input id="checkout_email" onblur="checkout()"  type="email" required="required" name="{{ form.email.name }}" class="form-control"  placeholder="Ваш E-Mail" value="{% if not guest.email %}{% else %}{{ guest.email }}{% endif %}">
+                            </div>
+                            <div class="checkout-user-info__input">
+                                <label for="InputEmail">Ваш телефон <sup>*</sup></label>
+                                <input id="phone_input" type="tel" required="required" name="{{ form.phone.name }}" class="form-control"  placeholder="Ваш телефон" value="{% if not guest.phone %}{% else %}{{ guest.phone }}{% endif %}">
+                            </div>
+
+                            <div class="checkout-user-info__input">
+                                <label for="InputEmail">Страна <sup>*</sup></label>
+                                <input id="country_input" type="text" required="required" name="{{ form.country.name }}" class="form-control"  placeholder="Страна" value="{% if not guest.country %}{% else %}{{ guest.country }}{% endif %}">
+                            </div>
+                            <div class="checkout-user-info__input">
+                                <label for="InputEmail">Город <sup>*</sup></label>
+                                <input id="city_input" type="text" required="required" name="{{ form.city.name }}" class="form-control"  placeholder="Город" value="{% if not guest.city %}{% else %}{{ guest.city }}{% endif %}">
+                            </div>
+                            <div class="checkout-user-info__input">
+                                <label for="InputEmail">Индекс <sup>*</sup></label>
+                                <input id="post_code_input" type="number" required="required" name="{{ form.post_code.name }}" class="form-control"  placeholder="Индекс" value="{% if not guest.post_code %}{% else %}{{ guest.post_code }}{% endif %}">
+                            </div>
+                            <div class="checkout-user-info__input">
+                                <label for="InputEmail">Адрес доставки <sup>*</sup></label>
+                                <textarea id="address_input" required="required" name="{{ form.address.name }}" class="form-control" rows="5"  placeholder="Адрес доставки">{% if not guest.address %}{% else %}{{ guest.address }}{% endif %}</textarea>
+                            </div>
+
+
+
+                            <label class="custom-checkbox"><span>Создать аккаунт на сайте ?</span>
+                                <input name="with_register" checked  id="with_register" type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+
+
+
+                        </div>
+                    </div><!--/checkout-user-info -->
+
+
+
+
+                    <div class="checkout-user-info" >
+                        <div class="checkout-user-info__header">
+                            <span>2</span>
+                            <p>Выберите вариант оплаты товара</p>
+                        </div>
+                    <div class="checkout-user-info__inputs">
+                        {% for pay in payment %}
+
+                             <label class="custom-checkbox">{{ pay.name }}
+                                <input id="payment_{{ pay.id }}"  {% if forloop.first %}checked{% endif %} name="payment" value="{{ pay.id }}"  type="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                        {% endfor %}
+                    </div>
+
+
+
+                    </div><!--/checkout-user-info -->
+
+                 <div class="checkout-user-info" >
+                        <div class="checkout-user-info__header">
+                            <span>3</span>
+                            <p>Выберите вариант доставки товара</p>
+                        </div>
+                         <div class="checkout-user-info__inputs">
+                            {% for ship in shipping %}
+
+                             <label class="custom-checkbox">{{ ship.name }}
+                                <input id="shipping_{{ ship.id }}"  {% if forloop.first %}checked{% endif %} name="shipping" value="{{ ship.id }}"  type="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                        {% endfor %}
+
+                         </div>
+                    </div><!--/checkout-user-info -->
+
+                    <input type="hidden" name="form_type" value="checkout_guest">
+
+
+
+
+
+
+                </div><!--/checkout-user -->
+            </form>
+
+
+            <aside class="checkout-order-items">
+
+                <div class="checkout-order-info" >
+                    <div class="checkout-order-info__header">
+
+                        <p>Использовать промо-код</p>
+                    </div>
+                    <div id="promo_div" class="checkout-order-info-items">
+                          <div  class="checkout-order-total ">
+                            <span>Введите промо-код</span>
+                            <input type="text"  id="promo_code" value="{% if used_promo %}{{ used_promo.promo_code }}{% endif %}" {% if used_promo %}disabled{% endif %} placeholder="Промо-код"  >
+
+                        </div>
+                        {% if not used_promo %}
+                             <a style="margin: 0 auto;" href="javascript:void(0)" id="use_promo_btn" onclick="use_promo()" class="btn-outline">проверить промо-код</a>
+                            {% else %}
+                               <a style="margin: 0 auto;" href="javascript:void(0)"  class="btn-outline">промо-код использован</a>
+                          {% endif %}
+
+                    </div>
+                </div>
+                <div class="checkout-order-info" >
+                    <div class="checkout-order-info__header">
+
+                        <p>Ваш заказ</p>
+                    </div>
+                    <div class="checkout-order-info-items">
+                        <div class="checkout-order-total">
+                            <span>Сумма заказа</span>
+                            <p><span id="order_price">{{ total_cart_price }}</span> <span>&#8381;</span></p>
+
+                        </div>
+                        <div id="register_div" class="checkout-order-total not-visible">
+                            <span>Скидка при регистрации</span>
+                            <p><span id="register_discount">10</span> <span>%</span></p>
+
+                        </div>
+                        <div id="promocode_div" class="checkout-order-total {% if not used_promo %}not-visible{% endif %}">
+                            <span>Скидка по промо-коду</span>
+                            <p><span id="used_promo_discount">{{ promo_discount_value }}</span> <span>%</span></p>
+
+                        </div>
+                        <div class="checkout-order-total not-visible">
+                            <span>Использовано бонусов</span>
+                            <p><span id="use_bonuses">10</span> <span>&#8381;</span></p>
+
+                        </div>
+                        <div class="checkout-order-total-price">
+                            <span>ИТОГО К ОПЛАТЕ</span>
+                            <p><span id="order_total_price"></span> <span>&#8381;</span></p>
+                        </div>
+                          <!--a style="margin: 0 auto;" id="checkout_btn" href="javascript:void(0)" onclick="submit_form()"    class="btn ">ОФОРМИТЬ ЗАКАЗ</a-->
+                    </div>
+                </div>
+            <button  type="button" id="checkout_btn"  onclick="submitForm()"   class="btn ">ОФОРМИТЬ ЗАКАЗ</button>
+            </aside>
+
+        </div>
+
+
+</div>
+</section>
+<script>
+    let useReg = true
+    let form = document.getElementById('customer_form')
+    let promoDiscount = parseInt(document.getElementById('promo_discount').innerText)
+    let startPrice = parseFloat(document.getElementById('cart_start_price').innerText)
+
+    function submitForm(){
+        if (form.checkValidity()){
+            form.submit();
+        }else{
+            alert('Форма не заполнена')
+        }
+
+    }
+
+    function use_promo() {
+    var promo_code = $('#promo_code').val();
+
+    if (promo_code){
+
+       var url = '/cart/use_promo/';
+       var csrf_token = $('#dummy_form [name="csrfmiddlewaretoken"]').val();
+
+      var data = {};
+        data.promo_code = promo_code;
+        data['csrfmiddlewaretoken'] = csrf_token;
+        console.log(data);
+        $.ajax({
+            url:url,
+            type:'POST',
+            data: data,
+            cache:true,
+            success: function (data) {
+                console.log('OK');
+                console.log(data.result);
+
+                if (data.result){
+
+                    calculateTotalPrice(data.promo_discount_value)
+                    $('#promo_code').attr('disabled','disabled')
+                    $('#use_promo_btn').attr('onclick','')
+                $('#use_promo_btn').html('промо-код использован')
+                $('#promo_discount').html(data.promo_discount_value);
+                  $('#used_promo_discount').html(data.promo_discount_value);
+                    document.getElementById('promocode_div').classList.toggle('not-visible')
+                   $.amaran({
+                            'theme'     :'colorful',
+                            'content'   :{
+                               bgcolor:'#21f26a',
+                               color:'#fff',
+                               message:'ПРОМО-КОД УСПЕШНО ПРИМЕНЕН !'
+                            },
+                            'position'  :'bottom right',
+                            'outEffect' :'slideBottom'
+                        });
+
+
+                }
+                else
+                {
+                          $.amaran({
+                            'theme'     :'colorful',
+                            'content'   :{
+                               bgcolor:'#F26663',
+                               color:'#fff',
+                               message:'ПРОМО-КОД НЕ НАЙДЕН, ЗАКОНЧЕН СРОК ДЕЙСТВИЯ ИЛИ УЖЕ ПРИМЕНЕН !'
+                            },
+                            'position'  :'bottom right',
+                            'outEffect' :'slideBottom'
+                        });
+
+                }
+
+                //  $('.cart_total_lg').html(data.total_cart_price);
+                // $('#cart_subtotal_price_side').html(data.total_cart_price + ' &#8381;');
+                //  $('#cart_total_price_side').html(data.total_cart_price_with_discount + ' &#8381;');
+                //   $('#promo_value').html(data.promo_discount_value + ' %');
+
+            },
+            error: function () {
+                console.log('ERROR')
+            }
+        });
+    }
+    else{
+        $.amaran({
+        'theme'     :'colorful',
+        'content'   :{
+           bgcolor:'#F26663',
+           color:'#fff',
+           message:'ВВЕДИТЕ ПРОМО-КОД !'
+        },
+        'position'  :'bottom right',
+        'outEffect' :'slideBottom'
+    });
+
+    }
+
+}
+
+    function checkout() {
+        email_input =$('#checkout_email');
+        span_error = $('#checkout_email_error');
+
+        email =email_input.val();
+        email_input.attr('disabled','disabled');
+        csrfmiddlewaretoken = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+
+        $.ajax({
+            type:"POST",
+            url:'/check_email/',
+            data:{
+                'csrfmiddlewaretoken': csrfmiddlewaretoken,
+                'email':email,
+                },
+            success : function(data){
+                console.log('OK');
+                console.log(data);
+                if(data['result']){
+                    console.log('OK');
+                    email_input.css('border-color','#29902a');
+                    email_input.removeAttr('disabled');
+                    span_error.html('');
+                    $('#checkout_btn').removeAttr('disabled');
+
+                }
+                else{
+
+                    email_input.css('border-color','#f2486e');
+                    email_input.removeAttr('disabled');
+                    $('#checkout_btn').attr('disabled','disabled');
+                    span_error.html(data.email_error);
+
+                 }
+            }
+        });
+}
+
+function use_bonuse() {
+    document.getElementById('bonuses_div').classList.toggle('not-visible')
+    document.getElementById('how_much_bonuses_use').value = 0
+}
+function use_register() {
+    promoDiscount = parseInt(document.getElementById('promo_discount').innerText)
+    document.getElementById('register_div').classList.toggle('not-visible')
+    if (useReg){
+
+        useReg = false
+        calculateTotalPrice(promoDiscount)
+    }else{
+        useReg = true
+        calculateTotalPrice(10 + promoDiscount)
+    }
+}
+document.addEventListener('DOMContentLoaded', function(){
+    calculateTotalPrice(promoDiscount)
+});
+
+function calculateTotalPrice(discount) {
+    document.getElementById('order_total_price').innerText = startPrice - (startPrice * discount / 100).toFixed(0)
+    
+}
+</script>

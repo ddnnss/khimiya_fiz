@@ -1,0 +1,232 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'header_white.html' %}
+    <section class="offer">
+        <div class="container">
+            <div class=" offer-inner">
+                <h1>Получите скидку до 30% на любой товар</h1>
+                <p>Пройдите опрос, который автоматически определит товар для вас</p>
+                <a href="#" class="btn">пройти опрос</a>
+            </div>
+
+
+        </div>
+
+    </section><!--offer-->
+    <section class="features">
+        <div class="container">
+            <div class="features-items">
+                <div class="feature-item">
+                    <div class="feature-icon1"></div>
+                    <h4>Бесплатная доставка</h4>
+                    <p>Предоставим бесплатную доставку при заказе от 1000 рублей</p>
+
+                </div> <!--feature-item-->
+                <div class="feature-item">
+                    <div class="feature-icon2"></div>
+                    <h4>Бесплатная доставка</h4>
+                    <p>Предоставим бесплатную доставку при заказе от 1000 рублей</p>
+
+                </div> <!--feature-item-->
+                <div class="feature-item">
+                    <div class="feature-icon3"></div>
+                    <h4>Бесплатная доставка</h4>
+                    <p>Предоставим бесплатную доставку при заказе от 1000 рублей</p>
+
+                </div> <!--feature-item-->
+                <div class="feature-item">
+                    <div class="feature-icon4"></div>
+                    <h4>Бесплатная доставка</h4>
+                    <p>Предоставим бесплатную доставку при заказе от 1000 рублей</p>
+
+                </div> <!--feature-item-->
+
+            </div>
+        </div>
+    </section><!--features-->
+
+    <section class="about-us">
+        <div class="container">
+            <div class="about-us-inner">
+                <div class="about-us-info" >
+                    <h3>О компании и продукте</h3>
+                    <p>Компания "Эквип-Мастер" с 2015 года является официальным дистрибьютором завода - производителя НПО "СпецСинтез", осуществляет поставки по всей территории России транспортными компаниями или курьерской службой. Имеет в своем арсенале склады в самых крупных городах с постоянным наличием самых популярных товарных позиций для: пищевого производства, медицинских учреждений, сферы HoReCa и д.р.</p>
+                    <p>Оказывает профессиональные консультации по всему выпускаемому заводом ассортименту, экономический расчет средств для предприятий, а так же как представитель предоставляет продукцию предприятиям для тестирования и дозирующие насосы для максимально экономного использования средств.</p>
+                </div>
+                <div class="about-us-video">
+                    <iframe width="80%" height="100%"
+                            src="https://www.youtube.com/embed/L9fXfiZzMJk">
+                    </iframe>
+                    <!--  <p>Посмотрите видео-ролик о нашем товаре</p>-->
+                </div>
+            </div>
+        </div>
+    </section><!--about-us-->
+
+    <section class="popular-items">
+        <div class="container">
+            <h3>Товары со скидками</h3>
+            <div class="item-cards">
+                {% for discount in discounts %}
+                    <div class="item-card ">
+                        <div class="item-card-discount">
+                            -{{ discount.discount }} %
+                        </div>
+
+                        <div class="item-card-favorite-btn">
+                            <a href="#"><i class="favorite-icon"></i></a>
+                        </div>
+                        <div class="item-card-inner">
+                            <a href="#"><img src="{{ discount.item.getfirstimage }}" alt=""></a>
+
+                            <a href="{{ discount.item.get_absolute_url }}"><p class="item-card-name">{{ discount.item.get_absolute_url }}</p></a>
+                            <p class="item-card-description">Lorem ipsum dolor sit amet, consectetur.</p>
+                        </div>
+                        <div class="item-card-price">
+                            <p> 1300 Р</p>
+                        </div>
+                    </div><!--item-card-->
+                {% endfor %}
+            </div>
+            <div class="popular-items-btn">
+                <a href="#" class="btn">смотреть каталог</a>
+            </div>
+        </div>
+
+    </section><!--popular-items-->
+    <section class="slider">
+        <div class="slider-inner">
+
+
+            <div class="slider-text-inner">
+                <div class="slide-wrapper">
+                    <div class="slider-image">
+                        <img id="slide-img-1" class="slide-img" src="{% static 'img/slide1.jpg' %}">
+
+                    </div>
+                    <div  class="slide-text">
+                        <h4>Самый большой выбор на рынке1</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolore ducimus facilis rem repudiandae unde? Beatae cupiditate earum et expedita id nemo nesciunt nulla numquam, possimus, quasi reiciendis, vel voluptatibus.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab dolorem nostrum obcaecati praesentium quia similique veniam. Ad nemo provident quae.</p>
+                    </div>
+                </div>
+                <div class="slide-wrapper">
+                    <div class="slider-image">
+                        <img id="slide-img-1" class="slide-img" src="{% static 'img/slide1.jpg' %}">
+
+                    </div>
+                    <div  class="slide-text">
+                        <h4>Самый большой выбор на рынке1</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolore ducimus facilis rem repudiandae unde? Beatae cupiditate earum et expedita id nemo nesciunt nulla numquam, possimus, quasi reiciendis, vel voluptatibus.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab dolorem nostrum obcaecati praesentium quia similique veniam. Ad nemo provident quae.</p>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="slider-text-inner-arrows">
+                <span id="cur_slide">01</span><span id="total_slide"></span>
+                <a id="arrow_left" href="javascript:void(0)"  > <img src="{% static 'img/arrow_left.png' %}" alt=""></a>
+                <a id="arrow_right" href="javascript:void(0)" > <img src="{% static 'img/arrow_right.png' %}" alt=""></a>
+            </div>
+
+        </div>
+
+    </section><!--slider-->
+    <section class="popular-items"><!--popular-category-->
+        <div class="container">
+            <h3>Популярные категории</h3>
+            <div class="item-cards">
+                <div class="item-card ">
+                    <div class="item-card-inner">
+                        <img src="{% static 'img/item.png' %}" alt="">
+                        <p class="item-card-name">Lorem ipsum.</p>
+                        <p class="item-card-description">Lorem ipsum dolor sit amet, consectetur.</p>
+                    </div>
+                    <div class="item-card-price">
+                        <a href="#" class="btn">открыть</a>
+                    </div>
+                </div><!--item-card-->
+                <div class="item-card ">
+                    <div class="item-card-inner">
+                        <img src="{% static 'img/item.png' %}" alt="">
+                        <p class="item-card-name">Lorem ipsum.</p>
+                        <p class="item-card-description">Lorem ipsum dolor sit amet, consectetur.</p>
+                    </div>
+                    <div class="item-card-price">
+                        <a href="#" class="btn">открыть</a>
+                    </div>
+                </div><!--item-card-->
+
+                <div class="item-card ">
+                    <div class="item-card-inner">
+                        <img src="{% static 'img/item.png' %}" alt="">
+                        <p class="item-card-name">Lorem ipsum.</p>
+                        <p class="item-card-description">Lorem ipsum dolor sit amet, consectetur.</p>
+                    </div>
+                    <div class="item-card-price">
+                        <a href="#" class="btn">открыть</a>
+                    </div>
+                </div><!--item-card-->
+
+                <div class="item-card ">
+                    <div class="item-card-inner">
+                        <img src="{% static 'img/item.png' %}" alt="">
+                        <p class="item-card-name">Lorem ipsum.</p>
+                        <p class="item-card-description">Lorem ipsum dolor sit amet, consectetur.</p>
+                    </div>
+                    <div class="item-card-price">
+                        <a href="#" class="btn">открыть</a>
+                    </div>
+                </div><!--item-card-->
+                <div class="item-card ">
+                    <div class="item-card-inner">
+                        <img src="{% static 'img/item.png' %}" alt="">
+                        <p class="item-card-name">Lorem ipsum.</p>
+                        <p class="item-card-description">Lorem ipsum dolor sit amet, consectetur.</p>
+                    </div>
+                    <div class="item-card-price">
+                        <a href="#" class="btn">открыть</a>
+                    </div>
+                </div><!--item-card-->
+
+
+            </div>
+            <div class="popular-items-btn">
+                <a href="#" class="btn">смотреть каталог</a>
+            </div>
+        </div>
+
+    </section><!--popular-category-->
+
+
+{% endblock %}
+{% block js %}
+
+    {{ block.super }}
+    <script src="{% static 'js/slick.js' %}"></script>
+    <script>
+        let qtySlides = $('.slide-wrapper').length;
+        $('#total_slide').text(`0${qtySlides}`);
+        console.log(qtySlides)
+        let slider = $('.slider-text-inner').slick({
+                prevArrow: '#arrow_left',
+                nextArrow: '#arrow_right',
+                slidesToShow: 1,
+                variableHeight: true,
+                dots: false,
+                infinite: true,
+                autoplay: true,
+                autoplaySpeed: 5000
+            }
+
+        );
+
+        slider.on('afterChange', function(event, slick, currentSlide, nextSlide){
+            $('#cur_slide').text(`0${slider.slick('slickCurrentSlide')+1}`);
+        });
+
+    </script>
+{% endblock %}

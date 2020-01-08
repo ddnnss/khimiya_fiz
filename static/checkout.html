@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<header class="header">
+    <div class="container ">
+        <div class="header-inner">
+            <nav class="nav">
+                <ul>
+                    <li><a href="#">главная</a></li>
+                    <li><a href="#">каталог</a></li>
+                    <li><a href="#">корзина</a></li>
+                    <li><a href="#">контакты</a></li>
+                    <li><a href="#">faq</a></li>
+                </ul>
+            </nav>
+            <div class="nav-search-cart" >
+                <form class="search-form">
+                    <input class="search-input" name="search-query" placeholder="Поиск товаров по сайту" required>
+                    <button class="search-input-button" type="submit"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                           width="24" height="24"
+                                                                           viewBox="0 0 24 24"
+                                                                           style=" fill:#44d4de;">    <path d="M 9 2 C 5.1458514 2 2 5.1458514 2 9 C 2 12.854149 5.1458514 16 9 16 C 10.747998 16 12.345009 15.348024 13.574219 14.28125 L 14 14.707031 L 14 16 L 20 22 L 22 20 L 16 14 L 14.707031 14 L 14.28125 13.574219 C 15.348024 12.345009 16 10.747998 16 9 C 16 5.1458514 12.854149 2 9 2 z M 9 4 C 11.773268 4 14 6.2267316 14 9 C 14 11.773268 11.773268 14 9 14 C 6.2267316 14 4 11.773268 4 9 C 4 6.2267316 6.2267316 4 9 4 z"></path></svg></button>
+                </form>
+                <a href="#"><span class="shopping-bag"><span class="cart-items">3</span></span></a>
+            </div>
+        </div>
+
+
+    </div>
+
+</header>
+
+<section class="checkout">
+    <div class="container">
+        <div class="breadcrumbs">
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="{% url 'show_cart' %}">Корзина</a></li>
+                <li><span>Оформление заказа</span></li>
+            </ul>
+        </div>
+        <h3>Оформление заказа</h3>
+
+        <div class="checkout-inner">
+            <form id="customer_form"  action="{% url 'checkout' %}" method="post">
+                <div class="checkout-user">
+
+
+                    <div class="checkout-user-info" >
+                        <div class="checkout-user-info__header">
+                            <span>1</span>
+                            <p>Введите Ваши данные</p>
+                        </div>
+
+                        <div class="checkout-user-info__inputs">
+                            <div class="checkout-user-info__input">
+                                <label >Ваше имя <sup>*</sup> </label>
+                                <input id="name_input"  required="required" name="{{ form.name.name }}" type="text" class="form-control"  placeholder="Ваше имя" value="{% if not guest.name %}{% else %}{{ guest.name }}{% endif %}">
+                            </div>
+                            <div class="checkout-user-info__input">
+                                <label for="InputName">Ваша фамилия <sup>*</sup> </label>
+                                <input id="family_input" required="required" name="{{ form.family.name }}" type="text" class="form-control"  placeholder="Ваша фамилия" value="{% if not guest.family %}{% else %}{{ guest.family }}{% endif %}">
+                            </div>
+                            <div class="checkout-user-info__input">
+                                <label for="InputName">Ваше отчество  </label>
+                                <input   name="{{ form.otchestvo.name }}" type="text" class="form-control"  placeholder="Ваше отчество" value="{% if not guest.otchestvo %}{% else %}{{ guest.otchestvo }}{% endif %}">
+                            </div>
+                            <div class="checkout-user-info__input">
+                                <label for="InputEmail">Ваш E-Mail <sup>*</sup> <span style="color: #f2486e;font-size: 13px;"
+                                                                                      id="checkout_email_error"></span>
+                                </label>
+                                <input id="checkout_email" onblur="checkout()"  type="email" required="required" name="{{ form.email.name }}" class="form-control"  placeholder="Ваш E-Mail" value="{% if not guest.email %}{% else %}{{ guest.email }}{% endif %}">
+                            </div>
+                            <div class="checkout-user-info__input">
+                                <label for="InputEmail">Ваш телефон <sup>*</sup></label>
+                                <input id="phone_input" type="tel" required="required" name="{{ form.phone.name }}" class="form-control"  placeholder="Ваш телефон" value="{% if not guest.phone %}{% else %}{{ guest.phone }}{% endif %}">
+                            </div>
+
+                            <div class="checkout-user-info__input">
+                                <label for="InputEmail">Страна <sup>*</sup></label>
+                                <input id="country_input" type="text" required="required" name="{{ form.country.name }}" class="form-control"  placeholder="Страна" value="{% if not guest.country %}{% else %}{{ guest.country }}{% endif %}">
+                            </div>
+                            <div class="checkout-user-info__input">
+                                <label for="InputEmail">Город <sup>*</sup></label>
+                                <input id="city_input" type="text" required="required" name="{{ form.city.name }}" class="form-control"  placeholder="Город" value="{% if not guest.city %}{% else %}{{ guest.city }}{% endif %}">
+                            </div>
+                            <div class="checkout-user-info__input">
+                                <label for="InputEmail">Индекс <sup>*</sup></label>
+                                <input id="post_code_input" type="number" required="required" name="{{ form.post_code.name }}" class="form-control"  placeholder="Индекс" value="{% if not guest.post_code %}{% else %}{{ guest.post_code }}{% endif %}">
+                            </div>
+                            <div class="checkout-user-info__input">
+                                <label for="InputEmail">Адрес доставки <sup>*</sup></label>
+                                <textarea id="address_input" required="required" name="{{ form.address.name }}" class="form-control" rows="5"  placeholder="Адрес доставки">{% if not guest.address %}{% else %}{{ guest.address }}{% endif %}</textarea>
+                            </div>
+
+
+
+                            <label class="custom-checkbox"><span>Создать аккаунт на сайте ? <strong>Скидка 10% на покупку</strong></span>
+                                <input name="with_register" checked onchange="use_register()"  id="with_register" type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+
+
+
+
+                        </div>
+                    </div><!--/checkout-user-info -->
+
+
+
+
+                    <div class="checkout-user-info" >
+                        <div class="checkout-user-info__header">
+                            <span>2</span>
+                            <p>Выберите вариант оплаты товара</p>
+                        </div>
+                         <div class="checkout-user-info__inputs">
+                            <label class="custom-checkbox"><span>Создать аккаунт на сайте ? <strong>Скидка 10% на покупку</strong></span>
+                                <input id="payment_1" name="payment" checked  type="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                          <label class="custom-checkbox"><span>Создать аккаунт на сайте ? <strong>Скидка 10% на покупку</strong></span>
+                                <input id="payment_1" name="payment"    type="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                          <label class="custom-checkbox"><span>Создать аккаунт на сайте ? <strong>Скидка 10% на покупку</strong></span>
+                                <input id="payment_1" name="payment"    type="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                         </div>
+                    </div><!--/checkout-user-info -->
+
+                 <div class="checkout-user-info" >
+                        <div class="checkout-user-info__header">
+                            <span>3</span>
+                            <p>Выберите вариант доставки товара</p>
+                        </div>
+                         <div class="checkout-user-info__inputs">
+                            <label class="custom-checkbox"><span>Создать аккаунт на сайте ? <strong>Скидка 10% на покупку</strong></span>
+                                <input id="shipping_1" checked name="shipping" type="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                          <label class="custom-checkbox"><span>Создать аккаунт на сайте ? <strong>Скидка 10% на покупку</strong></span>
+                                <input id="shipping_1" name="shipping" type="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                          <label class="custom-checkbox"><span>Создать аккаунт на сайте ? <strong>Скидка 10% на покупку</strong></span>
+                                <input id="shipping_1" name="shipping" type="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                         </div>
+                    </div><!--/checkout-user-info -->
+
+                    <input type="hidden" name="form_type" value="checkout_guest">
+
+                    <button  type="submit" id="checkout_btn"     class="btn ">ОФОРМИТЬ ЗАКАЗ</button>
+
+
+
+
+                </div><!--/checkout-user -->
+            </form>
+
+
+            <aside class="checkout-order-items">
+                <div class="checkout-order-info" >
+                    <div class="checkout-order-info__header">
+
+                        <p>Использовать бонусы</p>
+                    </div>
+                    <div class="checkout-order-info-items">
+                        <div class="checkout-order-total">
+                            <span>Ваши бонусы</span>
+                            <p><span id="total_bonuses">30404</span> <span>&#8381;</span></p>
+
+                        </div>
+                         <div class="checkout-order-total">
+                            <span>Вы можете использовать</span>
+                            <p><span id="bonuses_for_use">30404</span> <span>&#8381;</span></p>
+
+                        </div>
+                         <label class="custom-checkbox"><span>Использовать все бонусы?</span>
+                                <input name="with_register" checked onchange="use_bonuse()" id="with_register" type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                          <div id="bonuses_div" class="checkout-order-total not-visible">
+                            <span>Сколько бонусов использовать?</span>
+                            <input type="number" min="1" max="500" id="how_much_bonuses_use" value="0"  >
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="checkout-order-info" >
+                    <div class="checkout-order-info__header">
+
+                        <p>Использовать промо-код</p>
+                    </div>
+                    <div class="checkout-order-info-items">
+                          <div  class="checkout-order-total ">
+                            <span>Введите промо-код</span>
+                            <input type="text"  id="promo_code" value=""  >
+
+                        </div>
+                        <a style="margin: 0 auto;" href="javascript:void(0)" class="btn-outline">проверить промо-код</a>
+                    </div>
+                </div>
+                <div class="checkout-order-info" >
+                    <div class="checkout-order-info__header">
+
+                        <p>Ваш заказ</p>
+                    </div>
+                    <div class="checkout-order-info-items">
+                        <div class="checkout-order-total">
+                            <span>Сумма заказа</span>
+                            <p><span id="order_price">30404</span> <span>&#8381;</span></p>
+
+                        </div>
+                        <div id="register_div" class="checkout-order-total">
+                            <span>Скидка при регистрации</span>
+                            <p><span id="register_discount">10</span> <span>%</span></p>
+
+                        </div>
+                        <div class="checkout-order-total">
+                            <span>Скидка по промо-коду</span>
+                            <p><span id="promo_discount">10</span> <span>%</span></p>
+
+                        </div>
+                        <div class="checkout-order-total">
+                            <span>Использовано бонусов</span>
+                            <p><span id="use_bonuses">10</span> <span>&#8381;</span></p>
+
+                        </div>
+                        <div class="checkout-order-total-price">
+                            <span>ИТОГО К ОПЛАТЕ</span>
+                            <p><span id="order_total_price">453454354</span> <span>&#8381;</span></p>
+                        </div>
+                          <!--a style="margin: 0 auto;" id="checkout_btn" href="javascript:void(0)" onclick="submit_form()"    class="btn ">ОФОРМИТЬ ЗАКАЗ</a-->
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+
+
+    </div>
+
+
+
+</section>
+
+
+
+<footer class="footer">
+    <section class="mailform">
+        <div class="mailform-inner">
+            <h3>Хотите подробнее узнать о нашем товаре?</h3>
+            <p>Оставьте заявку на бесплатную консультацию</p>
+            <div class="mailform-form">
+
+                <input type="text" class="mailform-imput" placeholder="Ваше имя" value="" required>
+                <input type="email" class="mailform-imput" placeholder="Email" value="" required>
+                <input type="text" class="mailform-imput no-m" placeholder="Сотовый номер" value="" required>
+                <button type="submit" class="mailform-button">Заказать звонок</button>
+
+            </div>
+
+        </div>
+
+
+    </section><!--mailform-->
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-menu">
+                <ul>
+                    <li><a href="#">главная</a></li>
+                    <li><a href="#">каталог</a></li>
+                    <li><a href="#">корзина</a></li>
+                    <li><a href="#">контакты</a></li>
+                    <li><a href="#">faq</a></li>
+                </ul>
+            </div>
+            <div class="footer-phone">
+                <p>8 800 355 65 65</p>
+            </div>
+        </div>
+    </div>
+    <div class="b-border"></div>
+    <div class="container">
+        <div class="footer-copyright">
+            <div class="footer-copyright-text">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, laborum!
+                </p>
+            </div>
+            <div class="footer-copyright-social">
+                <a href="#"><img src="img/icons-instagram.png" alt=""></a>
+                <a href="#"><img src="img/icons-viber.png" alt=""></a>
+                <a href="#"><img src="img/icons-vk.png" alt=""></a>
+                <a href="#" class="no-m"><img src="img/icons-whatsapp.png" alt=""></a>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</footer>
+
+<script>
+function use_bonuse() {
+    document.getElementById('bonuses_div').classList.toggle('not-visible')
+    document.getElementById('how_much_bonuses_use').value = 0
+}
+function use_register() {
+    document.getElementById('register_div').classList.toggle('not-visible')
+    document.getElementById('how_much_bonuses_use').value = 0
+}
+</script>
+
+
+</body>
+</html>
