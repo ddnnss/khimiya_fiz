@@ -136,18 +136,7 @@
         {% for category in all_categories %}
             <li class="mobile-main-categories-wrapper " onclick="openCategory(this)">
                 <a class="mobile-main-categories-item" href="#">{{ category.name }}</a>
-                {% for subcat in category.subcategory_set.all %}
-                    <ul class="mobile-sub-categories">
-                        <li class="mobile-sub-categories-wrapper"  onclick="openSubcategory(this)">
-                            <a class="mobile-sub-categories-item" href="#">{{ subcat.name }}</a>
-                            <ul class="mobile-subsub-categories">
-                                {% for subsubcat in subcat.subsubcategory_set.all %}
-                                    <li><a class="mobile-subsub-categories-item" href="{% url 'subsubcategory' category.name_slug subcat.name_slug subsubcat.name_slug %}">{{ subsubcat.name }}</a> </li>
-                                {% endfor %}
-                            </ul>
-                        </li>
-                    </ul>
-                {% endfor %}
+
             </li>
         {% endfor %}
 
