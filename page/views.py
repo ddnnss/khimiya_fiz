@@ -36,28 +36,28 @@ def is_email(string):
     return True
 
 def showitem(request, cat_slug,item_slug):
-    try:
-        item = Item.objects.get(name_slug=item_slug)
-        item.views += 1
-        item.save(force_update=True)
-        subcat = SubSubCategory.objects.get(name_slug=cat_slug)
-        print('subcat=',subcat)
-        images = ItemImage.objects.filter(item=item)
-        # cat.views += 1
-        # cat.save()
-        volumes = item.itemprice_set.all()
-        title = 'Купить {} в - интернет-магазин САЙТ'.format(item.name)
-        description = 'В нашем интернет магазине Вы можете купить {} в ГОРОДЕ с бесплатной доставкой.'.format(item.name)
-        keywords = '{} купить, {} цена, {} интернет магазин, {} доставка'.format(item.name,item.name,item.name,item.name)
+    # try:
+    item = Item.objects.get(name_slug=item_slug)
+    item.views += 1
+    item.save(force_update=True)
+    subcat = SubSubCategory.objects.get(name_slug=cat_slug)
+    print('subcat=',subcat)
+    images = ItemImage.objects.filter(item=item)
+    # cat.views += 1
+    # cat.save()
+    volumes = item.itemprice_set.all()
+    title = 'Купить {} в - интернет-магазин САЙТ'.format(item.name)
+    description = 'В нашем интернет магазине Вы можете купить {} в ГОРОДЕ с бесплатной доставкой.'.format(item.name)
+    keywords = '{} купить, {} цена, {} интернет магазин, {} доставка'.format(item.name,item.name,item.name,item.name)
 
 
-        all_categories = SubSubCategory.objects.all()
-       # recomended = Item.objects.filter(subcategory_id=item.subcategory_id).order_by('-views')[:12]
-        print(request.META['HTTP_HOST'])
-        return render(request, 'page/item.html', locals())
-    except:
-       raise Http404
-        # return render(request, '404.html', locals())
+    all_categories = SubSubCategory.objects.all()
+   # recomended = Item.objects.filter(subcategory_id=item.subcategory_id).order_by('-views')[:12]
+    print(request.META['HTTP_HOST'])
+    return render(request, 'page/item.html', locals())
+    # except:
+    #    raise Http404
+    #     # return render(request, '404.html', locals())
 
 
 
@@ -421,16 +421,14 @@ def category(request, cat_slug):
 
 def subcategory(request, cat_slug,subcat_slug):
    # try:
-    cat = Category.objects.get(name_slug=cat_slug)
+    cat = SubSubCategory.objects.get(name_slug=cat_slug)
     # cat.views += 1
     # cat.save()
     title = cat.page_title
     description = cat.page_description
     keywords = cat.page_keywords
-    subcategory = SubCategory.objects.get(name_slug=subcat_slug)
-    subcats = SubCategory.objects.filter(name_slug=subcat_slug)
-    subsubcat = subcategory.subsubcategory_set.first()
-    all_items = Item.objects.filter(subcategory=subsubcat.id, is_active=True)
+
+
     all_categories = Category.objects.all()
   #  except:
    #     raise Http404

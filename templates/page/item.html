@@ -1,6 +1,6 @@
 {% extends 'basic.html' %}
 {% load static %}
-{% load humanize %}
+
 
 {% block content %}
     {% include 'header_grey.html' %}
@@ -15,9 +15,8 @@
                 <ul>
                     <li><a href="/">Главная</a></li>
                     <li><a href="#">Каталог</a></li>
-                    <li><a href="#">{{ cat.name }}</a></li>
-                    <li><a href="{% url 'subcategory' cat.name_slug subcat.name_slug %}">{{ subcat.name }}</a></li>
-                    <li><a href="{% url 'subsubcategory' cat.name_slug subcat.name_slug subsubcat.name_slug %}">{{ subsubcat.name}}</a></li>
+                    <li><a href="{% url 'subsubcategory' subcat.name_slug  %}">{{ subcat.name }}</a></li>
+
                     <li><span>{{ item.name }}</span></li>
                 </ul>
             </div>
