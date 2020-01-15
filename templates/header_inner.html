@@ -1,4 +1,4 @@
-
+{% load static %}
 <div class="container hidden-md">
     <div class="header-top">
         <ul>
@@ -10,7 +10,7 @@
     </div>
     <div class="header-inner">
         <a href="{% url 'index' %}">
-            <img src="http://placehold.it/300x70" alt="">
+            <img src="{% static 'img/logo.jpg' %}" alt="">
         </a>
 
 

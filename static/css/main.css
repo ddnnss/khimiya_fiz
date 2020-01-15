@@ -408,6 +408,8 @@ h3 {
     grid-template-columns: 1fr 3fr 1fr;
     grid-gap: 50px;
     margin-bottom: 20px; }
+    .header-inner img {
+      width: 300px; }
   .header-top {
     margin-bottom: 20px; }
     .header-top ul {
@@ -754,9 +756,10 @@ h3 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   margin: 0 auto; }
   .categories-nav ul {
     position: relative; }
@@ -774,11 +777,9 @@ h3 {
         display: block;
         text-decoration: none;
         color: #010101;
-        z-index: 1;
-        }
-      .categories-nav a:hover {
-        font-weight: 600 }
-
+        z-index: 1; }
+      .categories-nav ul li:hover a {
+        font-weight: 600; }
 
 .li-before a {
   color: #010101 !important; }
@@ -843,13 +844,13 @@ h3 {
   background: url("../img/index-icon-1.png") no-repeat; }
 
 .feature-icon2 {
-  background: url("../img/index-icon-2.png"); }
+  background: url("../img/index-icon-2.png") no-repeat; }
 
 .feature-icon3 {
-  background: url("../img/index-icon-3.png"); }
+  background: url("../img/index-icon-3.png") no-repeat; }
 
 .feature-icon4 {
-  background: url("../img/index-icon-4.png"); }
+  background: url("../img/index-icon-4.png") no-repeat; }
 
 .features-items {
   display: grid;
@@ -1056,7 +1057,7 @@ h3 {
 
 .slider-text-inner-arrows {
   position: absolute;
-  bottom: 0;
+  bottom: 50px;
   right: 50px; }
 
 #cur_slide {
@@ -1328,7 +1329,6 @@ h3 {
   padding: 0 18px;
   background-color: white;
   max-height: 0;
-
   -webkit-transition: max-height 0.2s ease-out;
   -o-transition: max-height 0.2s ease-out;
   transition: max-height 0.2s ease-out; }
